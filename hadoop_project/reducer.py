@@ -6,7 +6,6 @@ batches of 10"""
 
 import sys
 
-cols = ["id", "Salary", "company"]
 data = []
 
 for x, line in enumerate(sys.stdin):
