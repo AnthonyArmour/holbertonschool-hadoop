@@ -7,6 +7,7 @@ batches of 10"""
 import sys
 
 data = []
+min_idx = lambda data : (min(data), data.index(min(data)))
 
 for x, line in enumerate(sys.stdin):
     row = line.strip().replace("\t", ",").split(",")
@@ -18,9 +19,8 @@ for x, line in enumerate(sys.stdin):
             data.append(row)
             continue
 
-        m = min(list(zip(*data))[-2])
+        m, i = min_idx(list(zip(*data))[-2])
         if salary > m:
-            i = list(zip(*data))[-2].index(m)
             data[i] = row
     except Exception:
         continue
